@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Posting</title>
+</head>
+
+<body>
+    <h1>Posting page</h1>
+    <p>{{post.postname}}</p>
+    {% if post.post_image %}
+        <img src = '{{post.post_image.url}}' alt='' height='600'>
+        <br>
+    {% endif %}
+    <p>{{post.contents}}</p>
+    <br>
+    <a href='/list/'>목록으로</a>
+</body>
+</html>

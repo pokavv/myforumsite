@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>post_list.html</title>
+    </head>
+    
+    <body>
+        <h1>Post list page</h1>
+
+        <!-- posts의 post를 하나씩 보여줌 -->
+        <table>
+        {% for post in posts %}
+        <ul>
+            <li><a href='{{post.pk}}/'>{{post.postname}}</a></li>
+        </ul>
+        {% endfor %}
+        </table>
+        <button><a href="write/">글쓰기</a></button>
+    </body>
+</html>

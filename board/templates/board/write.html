@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <title>글쓰기</title>
+</head>
+
+<body>
+    <h1>글쓰기</h1>
+    <!-- <form>은 내부의 정보를 한번에 서버로 전송하는 역할 -->
+    <form method='POST'>
+        {% csrf_token %}
+        제목<br>
+        <input type='text' name='postname'><br>
+        내용<br>
+        <textarea row='10' cols='50' name='contents'></textarea><br>
+        <input type='file' name='post_image'><br>
+        <input type='submit' value='글쓰기'> <!-- type='submit'을 통해 서버로 전송-->
+    </form>
+</body>
+</html>
+
+{% comment %} 
+
+웹에서 정보를 서버에 전송할 때, 크게 두가지의 방식으로 통신한다.
+바로 GET방식과 POST방식이다.
+GET방식은 정보를 가져오는 방식이다. 즉, 원하는 데이터를 서버에 요청해서 받아온다고 생각하면 편하다.
+이 방식은 주소창에 가져올 정보가 모두 표시되기 때문에 중요한 정보는 GET방식을 사용하면 안된다.
+POST방식은 정보를 서버에 전송하여 서버 데이터베이스에 우리가 보낸 정보를 저장하는 방식이다.
+이 방법은 우리가 보낸 정보가 숨겨져 있다.
+
+(https://wikidocs.net/91438)
+
+{% endcomment %}
