@@ -13,3 +13,5 @@ write.html is the writing page, and the url is requested through the "Write" but
 Save the new post by 'POST' to the server through the <form> tag.
 
 2. add views : index, post_list, posting, write
+
+..
