@@ -12,6 +12,7 @@ urlpatterns = [
     path('list/', views.post_list, name='post_list'),
     path('list/<int:pk>/', posting, name='posting'),
     path('list/write/', views.write, name='write'),
+    path('list/<int:pk>/remove/', views.remove, name='remove'),
 ]
 
 # image url setting

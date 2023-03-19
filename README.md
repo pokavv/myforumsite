@@ -14,4 +14,5 @@ Save the new post by 'POST' to the server through the <form> tag.
 
 2. add views : index, post_list, posting, write
 
-..
+## 2023.03.20
+1. add remove.html, add views : remove

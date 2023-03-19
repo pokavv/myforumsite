@@ -23,11 +23,19 @@ def posting(request, pk):
 # new post write
 def write(request):
     if request.method == 'POST':
-        if request.POST['post_image']:
-            write = Post.objects.create(
+        if True:
+            new_post = Post.objects.create(
                 postname = request.POST['postname'],
                 post_image = request.POST['post_image'],
                 contents = request.POST['contents'],
             )
         return redirect('/list/')
     return render(request, 'board/write.html')
+
+# remove post
+def remove(request, pk):
+    post = Post.objects.get(pk=pk)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('/list/')
+    return render(request, 'board/remove.html', {'Post': post})
