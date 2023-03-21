@@ -1,11 +1,33 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='UTF-8'>
-    <title>index.html</title>
+    <title>myforum</title>
+    <meta charset="UTF-8">
+    {% block css %}
+    {% endblock css %}
+    <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/earlyaccess/nanummyeongjo.css">
 </head>
 
 <body>
-    index
+    <div id="warp">
+        <div id="header">
+            상단
+            <div id="nav">
+                <div class="logo">
+                    로고
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            내용
+        </div>
+        </div>
+        <div id="footer">
+            하단
+        </div>
+        </div>
+    </div>
 </body>
 </html>

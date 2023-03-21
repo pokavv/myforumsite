@@ -1,10 +1,23 @@
+{% extends './index.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel='stylesheet' href='{% static 'board/css/post-list.css' %}'>
+{% endblock css %}
+
 <html>
     <head>
         <title>post_list.html</title>
     </head>
     
     <body>
-        <h1>Post list page</h1>
+        {% block logo_text %}
+            <div id='header'>
+                <div class='container'>
+                    <h1>post list</h1>
+                </div>
+            </div>
+        {% endblock logo_text %}
 
         <!-- posts의 post를 하나씩 보여줌 -->
         <table>
