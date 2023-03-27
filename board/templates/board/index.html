@@ -5,18 +5,34 @@
     <title>myforum</title>
     <meta charset="UTF-8">
     {% block css %}
-    <link rel='stylesheet' href='{% static 'board/css/home.css' %}'>
     {% endblock css %}
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/nanummyeongjo.css">
 </head>
 
 <body>
-    <div class='container'>
-        <nav class='navbar'>
-            <div class='container'>
-                <a class='logo' href='#'>로고</a>
-                <button class='navbar-toggle' type='button'>
+    <div id='wrap'>
+        <div id='header'>
+            <div id='nav'>
+                <div class='logo'>
+                    <a href='{% url 'post_list' %}'><img src='{% static 'board/images/logo.png' %}'></a>
+                </div>
             </div>
-        </nav>
+            {% block post_header %}
+            {% endblock post_header %}
+        </div>
+        {% block logo_text %}
+        {% endblock logo_text %}
+        <div id='content'>
+            <div class='container'>
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+        <div id='footer'>
+            <div class='footer'>
+                <p>pokavv</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
