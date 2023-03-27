@@ -5,28 +5,47 @@
     <link rel='stylesheet' href='{% static 'board/css/post-list.css' %}'>
 {% endblock css %}
 
-<html>
-    <head>
-        <title>post_list.html</title>
-    </head>
-    
-    <body>
-        {% block logo_text %}
-            <div id='header'>
-                <div class='container'>
-                    <h1>post list</h1>
-                </div>
-            </div>
-        {% endblock logo_text %}
+{% block logo_text %}
+    <div id='header'>
+        <div class='container'>
+            <h1><img src='{% static 'board/images/logotxt.jpg' %}'></h1>
+        </div>
+    </div>
+{% endblock logo_text %}
 
-        <!-- posts의 post를 하나씩 보여줌 -->
-        <table>
-        {% for post in posts %}
-        <ul>
-            <li><a href='{{post.pk}}/'>{{post.postname}}</a></li>
-        </ul>
-        {% endfor %}
-        </table>
-        <button><a href="write/">글쓰기</a></button>
-    </body>
-</html>
+{% block content %}
+    <div class='btn_post'>
+        <a href='{% url 'write' %}'>글쓰기</a>
+    </div>
+
+    {% if page_obj.object_list %}
+        <div class='post_container'>
+            {% for post in page_obj.object_list %}
+                <div class='post'><a href='{% url 'posting' post.id %}'>
+                    <h2 class='title'>{{ post.title }}</h2>
+                    <p class='date'>{{ post.dt_created }}</p>
+                    <p class='text'>{{ post.contents|slice:':100' }}</p>
+                </a></div>
+            {% endfor %}
+        </div>
+        <div class='paging'>
+            {% if page_obj.has_previous %}
+                <a href='?page={{ page_obj.previous_page_number }}' class='prev'>이전</a>
+                <a href='?page=1' class='first'>처음</a>
+            {% endif %}
+
+            <span>
+                <p>{{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href='?page={{ page_obj.next_page_number }}' class='next'>다음</a>
+                <a href='?page={{ page_obj.paginator.num_pages }}' class='last'>마지막</a>
+            {% endif %}
+        </div>
+    {% else %}
+        <div class='blank'>
+            <p>보여줄 글이 없습니다.<br></p>
+        </div>
+    {% endif %}
+{% endblock content %}
