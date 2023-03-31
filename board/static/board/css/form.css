@@ -1,0 +1,9 @@
+.error {
+    color: red;
+    font-style: italic;
+}
+
+.title {
+    width: 400px;
+    height: 30px;
+}
