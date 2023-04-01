@@ -6,12 +6,12 @@ from django.core.exceptions import ValidationError
 class PostForm(forms.ModelForm):
     
     class Meta: # PostForm class에 적용할 옵션을 작성하는 class
-        model = Post
-        fields = ['title', 'content']
+        models = Post
+        fields = ['title', 'contents']
         widgets = {'title': forms.TextInput(attrs={
                         'class':'title',
                         'placeholder':'제목을 입력하세요.'}),
-                    'content':forms.Textarea(attrs={
+                    'contents':forms.Textarea(attrs={
                         'placeholder':'내용을 입력하세요.'})
                     }
     

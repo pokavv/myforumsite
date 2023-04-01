@@ -4,15 +4,15 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from board.views import index, post_list, posting
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('list/', views.post_list, name='post_list'),
-    path('list/<int:pk>/', posting, name='posting'),
-    path('list/write/', views.write, name='write'),
-    path('list/<int:pk>/remove/', views.remove, name='remove'),
+    path('', views.IndexRedirectView.as_view(), name='index'),
+    path('posts/', views.PostListView.as_view(), name='post_list'),
+    path('posts/new/', views.PostCreateView.as_view(), name='write'),
+    path('posts/<int:post_id>/', views.PostDetailView.as_view(), name='posting'),
+    path('posts/<int:post_id>/edit/', views.PostUpdateView.as_view(), name='update'),
+    path('posts/<int:post_id>/delete/', views.PostDeleteView.as_view(), name='delete'),
 ]
 
 # image url setting
