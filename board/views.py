@@ -88,7 +88,7 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
     template_name = 'board/posting.html' # 기본값에 맞게 작성되있기 때문에 생략 가능(default)
-    pk_url_kwarg = 'pk' # 기본값은 pk
+    pk_url_kwarg = 'post_id' # 기본값은 pk
     context_obj_name = 'post' # 기본값이 post기때문에 생략 가능
 
 class PostCreateView(CreateView):
@@ -97,7 +97,7 @@ class PostCreateView(CreateView):
     template_name = 'board/write.html'
     
     def get_success_url(self):
-        return reverse('posting', kwargs={'pk': self.pk_url_kwarg})
+        return reverse('posting', kwargs={'post_id': self.pk_url_kwarg})
 
 class PostUpdateView(UpdateView):
     model = Post
@@ -106,7 +106,7 @@ class PostUpdateView(UpdateView):
     pk_url_kwarg = 'pk'
     
     def get_success_url(self):
-        return reverse('posting', kwargs={'pk': self.pk_url_kwarg})
+        return reverse('posting', kwargs={'post_id': self.pk_url_kwarg})
 
 class PostDeleteView(DeleteView):
     model = Post
