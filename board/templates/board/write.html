@@ -1,8 +1,8 @@
-{% extends './base.html' %}
+{% extends './index.html' %}
 {% load static %}
 
 {% block css %}
-    <link rel='stylesheet' href="{% static 'posts/css/post_form.css' %}">
+    <link rel='stylesheet' href="{% static 'board/css/post_form.css' %}">
 {% endblock css %}
 
 {% block post_header %}
@@ -22,8 +22,8 @@
             {% for error in form.title.errors %}
                 <p class='error'>{{error}}</p>
             {% endfor %}
-            <p>{{form.content}}</p>
-            {% for error in form.content.errors %}
+            <p>{{form.contents}}</p>
+            {% for error in form.contents.errors %}
                 <p class='error'>{{error}}</p>
             {% endfor %}
         </div>
