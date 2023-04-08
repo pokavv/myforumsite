@@ -95,9 +95,10 @@ class PostCreateView(CreateView):
     model = Post
     form_class = PostForm
     template_name = 'board/write.html'
+    pk_url_kwarg = 'pk'
     
     def get_success_url(self):
-        return reverse('posting', kwargs={'post_id': self.pk_url_kwarg})
+        return reverse('posting', kwargs={'post_id': self.object.id})
 
 class PostUpdateView(UpdateView):
     model = Post
@@ -106,12 +107,12 @@ class PostUpdateView(UpdateView):
     pk_url_kwarg = 'pk'
     
     def get_success_url(self):
-        return reverse('posting', kwargs={'post_id': self.pk_url_kwarg})
+        return reverse('posting', kwargs={'post_id': self.object.id})
 
 class PostDeleteView(DeleteView):
     model = Post
     template_name = 'board/post_confirm_delete.html'
-    pk_url_kwarg = 'pk'
+    pk_url_kwarg = 'post_id'
     context_object_name = 'post'
     
     def get_success_url(self):
