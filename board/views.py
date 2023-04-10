@@ -104,7 +104,7 @@ class PostUpdateView(UpdateView):
     model = Post
     form_class = PostForm
     template_name = 'board/write.html'
-    pk_url_kwarg = 'pk'
+    pk_url_kwarg = 'post_id'
     
     def get_success_url(self):
         return reverse('posting', kwargs={'post_id': self.object.id})
